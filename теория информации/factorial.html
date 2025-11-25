@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Факториал</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Вычисление факториала</h1>
+    <img src="global.jpg" alt="Глобальная сеть" width="300">
+    <p>Введите число:</p>
+    <input type="number" id="num" placeholder="Введите число">
+    <button onclick="calcFactorial()">Вычислить</button>
+    <p id="result"></p>
+    <nav>
+        <a href="index.html">Главная</a> |
+        <a href="pascal.html">Треугольник Паскаля</a> |
+        <a href="binomial.html">Биномиальный коэффициент</a>
+    </nav>
+    <script>
+        function calcFactorial() {
+            let num = parseInt(document.getElementById("num").value);
+            if (isNaN(num) || num < 0) {
+                document.getElementById("result").textContent = "Введите корректное число!";
+                return;
+            }
+            let result = 1;
+            for (let i = 2; i <= num; i++) result *= i;
+            document.getElementById("result").textContent = `${num}! = ${result}`;
+        }
+    </script>
+</body>
+</html>

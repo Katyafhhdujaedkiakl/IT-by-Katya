@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Биномиальный коэффициент</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Биномиальный коэффициент</h1>
+    <img src="global.jpg" alt="Глобальная сеть" width="300">
+    <p>Введите n и k:</p>
+    <input type="number" id="n" placeholder="n">
+    <input type="number" id="k" placeholder="k">
+    <button onclick="binomial()">Вычислить</button>
+    <p id="result"></p>
+    <nav>
+        <a href="index.html">Главная</a> |
+        <a href="pascal.html">Треугольник Паскаля</a> |
+        <a href="factorial.html">Факториал</a>
+    </nav>
+    <script>
+        function factorial(num) {
+            return num <= 1 ? 1 : num * factorial(num - 1);
+        }
+        function binomial() {
+            let n = parseInt(document.getElementById("n").value);
+            let k = parseInt(document.getElementById("k").value);
+            if (isNaN(n) || isNaN(k) || k > n || n < 0 || k < 0) {
+                document.getElementById("result").textContent = "Введите корректные значения!";
+                return;
+            }
+            let result = factorial(n) / (factorial(k) * factorial(n - k));
+            document.getElementById("result").textContent = `C(${n}, ${k}) = ${result}`;
+        }
+    </script>
+</body>
+</html>
